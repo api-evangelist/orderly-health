@@ -1,0 +1,383 @@
+openapi: 3.0.0
+info:
+  title: Orderly Provider Directory Look Up Practitioners API
+  description: A set of endpoints for accessing the Orderly Provider Directory data programatically.
+  contact:
+    name: Orderly Health Information
+    url: https://www.orderlyhealth.com
+    email: info@orderlyhealth.com
+  termsOfService: https://orderlyhealth.com/terms-conditions
+  version: 1.0.1
+servers:
+- url: https://api.orderlyhealth.com
+  description: Orderly Health production API server
+security:
+- OrderlyAPIToken: []
+tags:
+- name: Look Up Practitioners
+paths:
+  /opd/practitioner/search:
+    post:
+      summary: Practitioner Search V2
+      description: Allows you to search for practitioners with a variety of parameters.
+      tags:
+      - Look Up Practitioners
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PractitionerSearchRequestV2'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PractitionerSearchResponseV2'
+          description: Successful response
+        '400':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Bad Request
+        '401':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Unauthorized
+        '500':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericError'
+          description: Orderly Internal Error
+components:
+  schemas:
+    GenericError:
+      description: Information for an Orderly error
+      example:
+        code: 401
+        error: You are unauthorized to access this endpoint
+      properties:
+        code:
+          description: The status code of the error
+          type: integer
+        error:
+          description: Description of the error
+          type: string
+      type: object
+    PractitionerDataV2:
+      properties:
+        addresses:
+          items:
+            properties:
+              addr1:
+                type: string
+                description: Address part 1, street name and number
+              addr2:
+                type: string
+                description: Address part 2 if applicable, e.g. suite number
+              addressConfidence:
+                type: string
+                description: 'Address Confidence Score is the probability that the record agrees with the address value you would get by calling the practitioner today. '
+              addressSource:
+                type: string
+                description: Highest confidence source for address
+              city:
+                type: string
+                description: City of the address
+              fax:
+                type: string
+                description: Fax number for the practitioner at this location
+              faxConfidence:
+                type: string
+                description: 'Fax Confidence Score is the probability that the record agrees with the fax value you would get by calling the practitioner today. '
+              faxSource:
+                type: string
+                description: Highest confidence source for fax
+              insurances:
+                description: Insurances that the practitioner takes.
+                example:
+                - data_source: medfuse
+                  payerName: UNITED HEALTHCARE
+                  planName: UNITED HEALTHCARE
+                items:
+                  properties:
+                    payerName:
+                      type: string
+                      description: Name of the payer organization
+                    planName:
+                      type: string
+                      description: Name of the plan, if available. May default to name of payer when unkown.
+                  type: object
+                type: array
+              is_primary:
+                type: boolean
+                description: Indication of whether this is the primary practicing address for the practitioner.
+              phone:
+                type: string
+                description: Phone number for the practitioner at this location
+              phoneConfidence:
+                type: string
+                description: 'Phone Confidence Score is the probability that the record agrees with the phone value you would get by calling the practitioner today. '
+              phoneSource:
+                type: string
+                description: Highest confidence source for phone
+              state:
+                type: string
+                description: State of the address
+              zip:
+                type: string
+                description: Zipcode of the address
+            type: object
+          type: array
+        care_categories:
+          description: Orderly computed Care Categories that the practitioner works in. This can be used as more coarse grained specialty groupings.
+          items:
+            properties:
+              name:
+                type: string
+            type: object
+          type: array
+        credentials:
+          description: Listed credentials for the practitioner
+          items:
+            properties:
+              name:
+                type: string
+            type: object
+          type: array
+        drug_enforcement_agency_numbers:
+          description: Listed DEA numbers for the practitioner
+          items:
+            properties:
+              number:
+                type: string
+            type: object
+          type: array
+        direct_messaging_addresses:
+          description: Direct messaging addresses for the practitioner
+          items:
+            type: string
+          type: array
+        emails:
+          description: Listed contact emails for the practitioner
+          items:
+            properties:
+              uri:
+                type: string
+            type: object
+          type: array
+        facility_affiliations:
+          description: List of Type 2 entities that this practitioner is affiliated with
+          items:
+            properties:
+              name:
+                type: string
+              npi:
+                type: string
+            type: object
+          type: array
+        first_name:
+          type: string
+          description: First name of the practitioner
+        gender:
+          type: string
+          description: Gender of the practitioner
+        languages:
+          description: Listed languages that the practitioner can practice in
+          items:
+            properties:
+              name:
+                type: string
+            type: object
+          type: array
+        last_name:
+          type: string
+          description: Last name of the practitioner
+        npi:
+          type: string
+          description: The practitioner's individual unique National Provider Identifier
+        pecos_id:
+          type: string
+          description: The practitioner's PECOS ID, if applicable
+        sanctioned:
+          type: boolean
+          description: Quick indicator of whether the practitioner is currently sanctioned
+        sanctions:
+          description: List of all active sanctions for the practitioner.
+          items:
+            example:
+            - effectiveDate: '2015-08-20T00:00:00'
+              source: OIG
+              type: 1128a1
+            properties:
+              effectiveDate:
+                format: date-time
+                type: string
+                description: As of what date the practitioner was sanctioned
+              source:
+                type: string
+                description: What organization sanctioned the practitioner
+              type:
+                type: string
+                description: Type code of the sanction, taxonomy depends on where the sanction came from
+            type: object
+          type: array
+        specialties:
+          items:
+            example:
+            - is_primary: true
+              taxonomy_code: 1041C0700X
+              taxonomy_name: Clinical Social Worker
+            properties:
+              is_primary:
+                type: boolean
+                description: Indicator that this is the practitioner's primary practicing specialty
+              taxonomy_code:
+                type: string
+                description: NUCC taxonomy code
+              taxonomy_name:
+                type: string
+                description: Name for the taxonomized specialty
+            type: object
+          type: array
+        state_licenses:
+          description: List of state licenses the practitioner has active
+          items:
+            properties:
+              license_number:
+                type: string
+              license_state:
+                type: string
+            type: object
+          type: array
+        tags:
+          description: Various Orderly computed practitioner tags for easier at-a-glance information and filtering
+          properties:
+            is_advanced_practice_provider:
+              type: boolean
+              description: Whether the practitioner is an advanced practice provider, e.g. Physician Assistant, Nurse Practitioner, etc
+            is_prescriber:
+              type: boolean
+              description: Whether the practitioner is able to prescribe medication
+            is_primary_care_provider:
+              type: boolean
+              description: Whether the practitioner is able to take appointments as a primary care provider
+            is_referable:
+              type: boolean
+              description: Whether the practitioner can be referred to from a primary care provider
+            practitioner_types:
+              description: High level summary of practitioner categories that the practitioner fits within
+              items:
+                properties:
+                  name:
+                    type: string
+                type: object
+              type: array
+          type: object
+      type: object
+    PractitionerSearchRequestV2:
+      description: The request body for a search for a practitioner
+      properties:
+        npi:
+          description: NPI of the practitioner to search for
+          type: string
+          example: 1952488983
+        first_name:
+          description: First name of the practitioner to search form
+          type: string
+          example: Renee
+        last_name:
+          description: Last name of the practitioner to search for
+          type: string
+          example: Williams
+        address1:
+          description: First line of address you want to search for
+          type: string
+          example: 123 First St.
+        zip:
+          description: Zip code to search for practitioner in/near. Use distance parameter to search nearby.
+          type: string
+          example: '27103'
+        distance:
+          description: Distance in miles from zip code to search for practitioner near
+          type: string
+          example: '10'
+        states:
+          description: List of full state names you want to search within
+          items:
+            type: string
+            example: Colorado
+          type: array
+        specialties:
+          description: NUCC specialties to filter practitioners by
+          items:
+            type: string
+            example: Nuclear Cardiology Physician
+          type: array
+        practitioner_types:
+          description: Practitioner types to filter practitioner by
+          items:
+            type: string
+            example: Physician
+          type: array
+        care_categories:
+          description: Care categories to filter practitioner by
+          items:
+            type: string
+            example: Cardiology
+          type: array
+        drug_enforcement_agency_numbers:
+          description: Drug Enforcement Agency Numbers to filter practitioner by
+          items:
+            type: string
+            example: FS3188198
+          type: array
+        payer_names:
+          description: Insurance Networks you would like to search within
+          items:
+            type: string
+            example: AETNA INC
+          type: array
+        required_fields:
+          description: Required fields in response choosen from provided list
+          items:
+            type: string
+            enum:
+            - email
+            - fax
+            - credentials
+            - insurance_accepted
+            - facility_affiliations
+            example: fax
+          type: array
+        allow_sanctioned:
+          description: Show sanctioned providers in results
+          type: boolean
+          example: false
+        size:
+          description: How many maximum records to return in the search. Default is 25 if unspecified.
+          type: integer
+          example: 25
+        from:
+          description: What index to start results at, default is 0 if unspecified. Used in conjunction with 'size' parameter to page through large results set with iterative search calls.
+          type: integer
+          example: 0
+      type: object
+    PractitionerSearchResponseV2:
+      properties:
+        practitioners:
+          items:
+            $ref: '#/components/schemas/PractitionerDataV2'
+          type: array
+        total_hits:
+          description: Total number of results matched by the search. Might be much larger than the actual results returned from the first search call, depending on `size` parameter. This is especially useful when paging through a large results set with `size` and `from` parameters.
+          type: integer
+      type: object
+  securitySchemes:
+    OrderlyAPIToken:
+      type: apiKey
+      in: header
+      name: Authorization
