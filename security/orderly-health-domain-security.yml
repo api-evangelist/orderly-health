@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: orderlyhealth.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 28 10:29:08 2026 GMT
+  hsts: false
+- host: api.orderlyhealth.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  3 02:50:24 2026 GMT
+  hsts: null
+domains:
+- domain: orderlyhealth.com
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

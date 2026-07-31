@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://orderlyapi.readme.io/
+versioning:
+  api_version: 1.0.1
+  doc_versions: [v1.3, v2.0]
+  scheme: documentation-version
+  notes: The developer hub is versioned (v1.3, v2.0); the OpenAPI reports info.version 1.0.1. No version segment appears in the request path.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: null
+status_page: null
+terms_of_service: https://orderlyhealth.com/terms-conditions
+deprecated_operations: []
+notes: No public status page (status.orderlyhealth.com does not resolve; /status returns 404) and no published SLA were found.

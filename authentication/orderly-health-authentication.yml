@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orderly-health-provider-directory-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: OrderlyAPIToken
+  type: apiKey
+  in: header
+  parameter: Authorization
+  sources:
+  - openapi/orderly-health-provider-directory-openapi.json

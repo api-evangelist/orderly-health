@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orderly-health-provider-directory-openapi.json
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: Auth is an apiKey (Authorization header token), not OAuth2.
+  - id: oidc
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+    evidence: The directory API returns a proprietary practitioner schema, not FHIR resources (the org publishes a fork of google/fhir on GitHub but the documented API is not FHIR-shaped).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom GenericError object ({code, error}) with application/json, not application/problem+json.
+  - id: nucc-taxonomy
+    conforms: true
+    evidence: Specialties are expressed with NUCC taxonomy codes and names.
+  - id: nppes-npi
+    conforms: true
+    evidence: Records are keyed on NPPES National Provider Identifiers (npi) and PECOS IDs.
+  - id: pagination-offset
+    conforms: true
+    evidence: Offset pagination via size/from with total_hits in the response.
+notes: Derived from the OpenAPI and object model. No published third-party compliance certifications (SOC 2, ISO 27001, HIPAA, etc.) were found on the public site, so no Compliance pointer is emitted.

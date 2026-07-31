@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orderly-health-provider-directory-openapi.json
+format: custom
+envelope:
+  description: Errors are returned as a GenericError object with a numeric status code and a human-readable message.
+  media_type: application/json
+  fields:
+    code: The status code of the error (integer).
+    error: Description of the error (string).
+  example:
+    code: 401
+    error: You are unauthorized to access this endpoint
+problems:
+  - status: 400
+    title: Bad Request
+    schema: GenericError
+    source_operation: openapi/orderly-health-provider-directory-openapi.json#/paths/~1opd~1practitioner~1search/post
+  - status: 401
+    title: Unauthorized
+    schema: GenericError
+    remediation: Ensure the Authorization header carries a valid Orderly API token (Basic-encoded). Tokens are generated from the API tokens page at https://app.orderlyhealth.com.
+    source_operation: openapi/orderly-health-provider-directory-openapi.json#/paths/~1opd~1practitioner~1search/post
+  - status: 500
+    title: Orderly Internal Error
+    schema: GenericError
+    source_operation: openapi/orderly-health-provider-directory-openapi.json#/paths/~1opd~1practitioner~1search/post

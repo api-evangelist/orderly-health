@@ -1,0 +1,14 @@
+{
+  "provider": "orderly-health",
+  "sources": [
+    "orderly-health-look-up-practitioners-api-openapi.yml"
+  ],
+  "outputs": [
+    "orderly-health-look-up-practitioners-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

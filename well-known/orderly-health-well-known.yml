@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: probed
+source: live probes of /.well-known/* on the website and API hosts
+hosts:
+  - host: https://orderlyhealth.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://api.orderlyhealth.com
+    note: All paths on the API host require authentication and return 401 (no anonymous well-known discovery surface).
+    documents:
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+result: none
+notes: No .well-known discovery documents are published. An llms.txt is served on the docs host (orderlyapi.readme.io/llms.txt) and captured under llms/.

@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Orderly Provider Directory API
+  version: 1.0.0
+extends: openapi/orderly-health-provider-directory-openapi.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Single documented operation (Practitioner Search V2). apiKey auth via
+        Authorization header (Basic-encoded Orderly token). Offset pagination
+        (size/from + total_hits). No idempotency, rate-limit, or webhook surface
+        documented.
+  - target: $.paths['/opd/practitioner/search'].post
+    update:
+      x-apievangelist-suggested-operationId: practitionerSearchV2
+      x-apievangelist-summary-enhancement: >-
+        Source spec omits operationId; suggested id practitionerSearchV2 for SDK
+        and agent tooling. Tags reference a "Look Up Practitioners" tag that is
+        not defined in a global tags[] block.
+  - target: $
+    update:
+      tags:
+        - name: Look Up Practitioners
+          description: Operations for searching the Orderly Provider Directory.

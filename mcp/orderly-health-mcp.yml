@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/orderly-health-provider-directory-openapi.json
+note: No official hosted or remote MCP server was found for Orderly Health. This is a candidate tool surface derived from the OpenAPI operation, not a published server.
+server:
+  name: orderly-health
+  transport: http
+tools:
+  - name: search_practitioners
+    description: Search the Orderly Provider Directory for practitioners by NPI, name, location, specialty, care category, insurance/payer, DEA number, and more. Supports offset pagination via size/from.
+    source_operation: openapi/orderly-health-provider-directory-openapi.json#/paths/~1opd~1practitioner~1search/post

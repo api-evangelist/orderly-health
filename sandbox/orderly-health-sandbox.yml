@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://orderlyapi.readme.io/docs/setting-up-to-use-the-orderly-api
+model: demo-account
+description: >-
+  Orderly does not publish a separate sandbox host or synthetic test dataset.
+  Access is gated by a demo account: request a demo account via the Orderly
+  Provider Directory page, then mint an API token from the "API tokens" area of
+  the app portal and call the production host with it. The demo account scopes
+  what data is returned.
+account_request_url: https://orderlyhealth.com/orderly-provider-directory/
+token_portal: https://app.orderlyhealth.com
+base_url: https://api.orderlyhealth.com
+example_values:
+  note: NPI values published verbatim in the developer hub as request examples (real NPPES identifiers used for illustration, not synthetic test data).
+  example_request_npis:
+    - '1003045022'   # used in the setup guide cURL example
+    - '1952488983'   # request-body schema example

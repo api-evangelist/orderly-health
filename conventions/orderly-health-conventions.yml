@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: searched
+source: https://orderlyapi.readme.io/docs/setting-up-to-use-the-orderly-api
+summary: Cross-cutting request/response semantics for the Orderly Provider Directory API, derived from the OpenAPI and the developer hub setup guide.
+authentication:
+  style: api-key
+  location: header
+  header: Authorization
+  notes: An Orderly API token is passed in the Authorization header over Basic Auth (the copied token value already includes the "Basic" prefix). Tokens are minted from the "API tokens" area of https://app.orderlyhealth.com.
+  reference: authentication/orderly-health-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header or idempotency contract is documented. The single documented operation is a read/search (POST body used as a query), which is naturally safe to retry.
+pagination:
+  style: offset
+  request_params:
+    size: Maximum number of records to return (default 25).
+    from: Zero-based index to start results at; combine with size to page through large result sets.
+  response_fields:
+    total_hits: Total number of records matched by the search (may exceed the returned page size).
+    practitioners: The page of practitioner records returned.
+metadata:
+  confidence_scores: Field-level confidence scores (addressConfidence, phoneConfidence, faxConfidence) express the probability a value still agrees with the practitioner today, factoring data source, age, and decay.
+  source_attribution: Per-field source labels (addressSource, phoneSource, faxSource) identify the highest-confidence origin (Orderly Data, Curated Public Data, Partner Data, Phone Attested).
+versioning:
+  api_version: 1.0.1
+  doc_versions: [v1.3, v2.0]
+  scheme: documentation-version (ReadMe hub versions); no version segment in the request path.
+error_envelope:
+  shape: '{ code: <int>, error: <string> }'
+  reference: errors/orderly-health-problem-types.yml
+rate_limiting:
+  documented: false
+  notes: No published rate-limit headers or quotas were found in the developer hub.

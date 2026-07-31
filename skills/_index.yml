@@ -1,0 +1,8 @@
+generated: '2026-07-20'
+method: generated
+skills:
+  - file: orderly-health-search-practitioners.md
+    name: Search the Orderly Provider Directory
+    api: openapi/orderly-health-provider-directory-openapi.json
+    operations:
+      - "POST /opd/practitioner/search"

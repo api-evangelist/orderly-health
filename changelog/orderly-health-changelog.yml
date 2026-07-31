@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: searched
+source: https://orderlyapi.readme.io/changelog
+scheme: documentation-version
+current_version: v2.0
+entries:
+  - version: v2.0
+    date: null
+    highlights:
+      - Practitioner Search V2 (POST /opd/practitioner/search) with confidence scores, source attribution, and offset pagination.
+    breaking: null
+  - version: v1.3
+    date: null
+    highlights: []
+    breaking: null
+notes: The developer hub exposes versions v1.3 and v2.0 and a single changelog post ("Welcome to OrderlyAPI"). Individual dated release entries are not published; versions are captured from the hub version selector.

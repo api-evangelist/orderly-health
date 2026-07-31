@@ -1,0 +1,12 @@
+# OrderlyAPI Documentation
+
+> API documentation for Orderly Health APIs
+
+## Guides
+- [Documentation](https://orderlyapi.readme.io/docs.md): OrderlyAPI documentation
+
+## API Reference
+- [Practitioner Search V2](https://orderlyapi.readme.io/reference/post_opd-practitioner-search.md): Allows you to search for practitioners with a variety of parameters.
+
+## Changelog
+- [Welcome to OrderlyAPI](https://orderlyapi.readme.io/changelog/welcome-to-orderlyapi.md)

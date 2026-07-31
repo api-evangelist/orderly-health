@@ -1,0 +1,75 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/orderly-health-provider-directory-openapi.json
+entities:
+  - name: Practitioner
+    schema: PractitionerDataV2
+    identifiers:
+      - field: npi
+        description: The practitioner's individual unique National Provider Identifier.
+      - field: pecos_id
+        description: The practitioner's PECOS ID, if applicable.
+    description: A healthcare practitioner record assembled from multiple sources with per-field confidence scores.
+  - name: Address
+    embedded_in: Practitioner
+    via: addresses
+    description: A practice location with contact numbers, accepted insurances, and confidence/source metadata.
+  - name: Insurance
+    embedded_in: Address
+    via: insurances
+    description: A payer/plan the practitioner accepts at a location.
+  - name: Specialty
+    embedded_in: Practitioner
+    via: specialties
+    description: NUCC-taxonomized specialty (taxonomy_code + taxonomy_name).
+  - name: CareCategory
+    embedded_in: Practitioner
+    via: care_categories
+    description: Orderly-computed coarse specialty grouping.
+  - name: Sanction
+    embedded_in: Practitioner
+    via: sanctions
+    description: An active sanction against the practitioner (source, type, effectiveDate).
+  - name: StateLicense
+    embedded_in: Practitioner
+    via: state_licenses
+  - name: FacilityAffiliation
+    embedded_in: Practitioner
+    via: facility_affiliations
+    description: A Type 2 entity (facility) the practitioner is affiliated with, keyed by npi.
+  - name: Credential
+    embedded_in: Practitioner
+    via: credentials
+  - name: Language
+    embedded_in: Practitioner
+    via: languages
+relationships:
+  - from: PractitionerSearchResponseV2
+    to: Practitioner
+    kind: has_many
+    via: practitioners
+  - from: Practitioner
+    to: Address
+    kind: has_many
+    via: addresses
+  - from: Address
+    to: Insurance
+    kind: has_many
+    via: insurances
+  - from: Practitioner
+    to: Specialty
+    kind: has_many
+    via: specialties
+  - from: Practitioner
+    to: Sanction
+    kind: has_many
+    via: sanctions
+  - from: Practitioner
+    to: FacilityAffiliation
+    kind: has_many
+    via: facility_affiliations
+  - from: Practitioner
+    to: StateLicense
+    kind: has_many
+    via: state_licenses
+notes: The API exposes a single denormalized practitioner document; nested arrays are embedded value objects rather than independently addressable resources. FacilityAffiliation.npi references Type 2 (organization) NPIs not directly retrievable through the documented endpoint.
