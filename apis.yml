@@ -67,6 +67,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/orderly-health-provider-directory-overlay.yaml
 - type: DomainSecurity
   url: security/orderly-health-domain-security.yml
 - type: AgenticAccess
