@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Orderly Provider Directory Look Up Practitioners API",
+    "version": "1.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Look Up Practitioners",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Practitioner Search V2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.orderlyhealth.com/opd/practitioner/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows you to search for practitioners with a variety of parameters."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

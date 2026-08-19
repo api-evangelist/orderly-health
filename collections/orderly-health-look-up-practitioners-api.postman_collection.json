@@ -1,0 +1,311 @@
+{
+  "item": [
+    {
+      "id": "4e6af70e-20aa-49a2-8c82-7267eb2e31b6",
+      "name": "Look Up Practitioners",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7b3f00a3-5887-462f-95f0-59dcc04e5783",
+          "name": "Practitioner Search V2",
+          "request": {
+            "name": "Practitioner Search V2",
+            "description": {
+              "content": "Allows you to search for practitioners with a variety of parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "opd",
+                "practitioner",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"npi\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"address1\": \"<string>\",\n  \"zip\": \"<string>\",\n  \"distance\": \"<string>\",\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"specialties\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"practitioner_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"care_categories\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"drug_enforcement_agency_numbers\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"payer_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"required_fields\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allow_sanctioned\": \"<boolean>\",\n  \"size\": \"<integer>\",\n  \"from\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2296a6fe-a718-4ee3-8456-efa95eae62e4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opd",
+                    "practitioner",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"npi\": \"<string>\",\n  \"first_name\": \"Renee\",\n  \"last_name\": \"Williams\",\n  \"address1\": \"123 First St.\",\n  \"zip\": \"27103\",\n  \"distance\": \"10\",\n  \"states\": [\n    \"Colorado\",\n    \"Colorado\"\n  ],\n  \"specialties\": [\n    \"Nuclear Cardiology Physician\",\n    \"Nuclear Cardiology Physician\"\n  ],\n  \"practitioner_types\": [\n    \"Physician\",\n    \"Physician\"\n  ],\n  \"care_categories\": [\n    \"Cardiology\",\n    \"Cardiology\"\n  ],\n  \"drug_enforcement_agency_numbers\": [\n    \"FS3188198\",\n    \"FS3188198\"\n  ],\n  \"payer_names\": [\n    \"AETNA INC\",\n    \"AETNA INC\"\n  ],\n  \"required_fields\": [\n    \"fax\",\n    \"fax\"\n  ],\n  \"allow_sanctioned\": false,\n  \"size\": 25,\n  \"from\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"practitioners\": [\n    {\n      \"addresses\": [\n        {\n          \"addr1\": \"string\",\n          \"addr2\": \"string\",\n          \"addressConfidence\": \"string\",\n          \"addressSource\": \"string\",\n          \"city\": \"string\",\n          \"fax\": \"string\",\n          \"faxConfidence\": \"string\",\n          \"faxSource\": \"string\",\n          \"insurances\": [\n            {\n              \"data_source\": \"medfuse\",\n              \"payerName\": \"UNITED HEALTHCARE\",\n              \"planName\": \"UNITED HEALTHCARE\"\n            }\n          ],\n          \"is_primary\": false,\n          \"phone\": \"string\",\n          \"phoneConfidence\": \"string\",\n          \"phoneSource\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        {\n          \"addr1\": \"string\",\n          \"addr2\": \"string\",\n          \"addressConfidence\": \"string\",\n          \"addressSource\": \"string\",\n          \"city\": \"string\",\n          \"fax\": \"string\",\n          \"faxConfidence\": \"string\",\n          \"faxSource\": \"string\",\n          \"insurances\": [\n            {\n              \"data_source\": \"medfuse\",\n              \"payerName\": \"UNITED HEALTHCARE\",\n              \"planName\": \"UNITED HEALTHCARE\"\n            }\n          ],\n          \"is_primary\": true,\n          \"phone\": \"string\",\n          \"phoneConfidence\": \"string\",\n          \"phoneSource\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        }\n      ],\n      \"care_categories\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"credentials\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"drug_enforcement_agency_numbers\": [\n        {\n          \"number\": \"string\"\n        },\n        {\n          \"number\": \"string\"\n        }\n      ],\n      \"direct_messaging_addresses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"emails\": [\n        {\n          \"uri\": \"string\"\n        },\n        {\n          \"uri\": \"string\"\n        }\n      ],\n      \"facility_affiliations\": [\n        {\n          \"name\": \"string\",\n          \"npi\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"npi\": \"string\"\n        }\n      ],\n      \"first_name\": \"string\",\n      \"gender\": \"string\",\n      \"languages\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"npi\": \"string\",\n      \"pecos_id\": \"string\",\n      \"sanctioned\": true,\n      \"sanctions\": [\n        {\n          \"effectiveDate\": \"1950-06-10T03:23:51.349Z\",\n          \"source\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"effectiveDate\": \"2015-03-24T03:22:56.757Z\",\n          \"source\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"specialties\": [\n        {\n          \"is_primary\": true,\n          \"taxonomy_code\": \"string\",\n          \"taxonomy_name\": \"string\"\n        },\n        {\n          \"is_primary\": true,\n          \"taxonomy_code\": \"string\",\n          \"taxonomy_name\": \"string\"\n        }\n      ],\n      \"state_licenses\": [\n        {\n          \"license_number\": \"string\",\n          \"license_state\": \"string\"\n        },\n        {\n          \"license_number\": \"string\",\n          \"license_state\": \"string\"\n        }\n      ],\n      \"tags\": {\n        \"is_advanced_practice_provider\": true,\n        \"is_prescriber\": true,\n        \"is_primary_care_provider\": true,\n        \"is_referable\": false,\n        \"practitioner_types\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"addresses\": [\n        {\n          \"addr1\": \"string\",\n          \"addr2\": \"string\",\n          \"addressConfidence\": \"string\",\n          \"addressSource\": \"string\",\n          \"city\": \"string\",\n          \"fax\": \"string\",\n          \"faxConfidence\": \"string\",\n          \"faxSource\": \"string\",\n          \"insurances\": [\n            {\n              \"data_source\": \"medfuse\",\n              \"payerName\": \"UNITED HEALTHCARE\",\n              \"planName\": \"UNITED HEALTHCARE\"\n            }\n          ],\n          \"is_primary\": false,\n          \"phone\": \"string\",\n          \"phoneConfidence\": \"string\",\n          \"phoneSource\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        },\n        {\n          \"addr1\": \"string\",\n          \"addr2\": \"string\",\n          \"addressConfidence\": \"string\",\n          \"addressSource\": \"string\",\n          \"city\": \"string\",\n          \"fax\": \"string\",\n          \"faxConfidence\": \"string\",\n          \"faxSource\": \"string\",\n          \"insurances\": [\n            {\n              \"data_source\": \"medfuse\",\n              \"payerName\": \"UNITED HEALTHCARE\",\n              \"planName\": \"UNITED HEALTHCARE\"\n            }\n          ],\n          \"is_primary\": true,\n          \"phone\": \"string\",\n          \"phoneConfidence\": \"string\",\n          \"phoneSource\": \"string\",\n          \"state\": \"string\",\n          \"zip\": \"string\"\n        }\n      ],\n      \"care_categories\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"credentials\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"drug_enforcement_agency_numbers\": [\n        {\n          \"number\": \"string\"\n        },\n        {\n          \"number\": \"string\"\n        }\n      ],\n      \"direct_messaging_addresses\": [\n        \"string\",\n        \"string\"\n      ],\n      \"emails\": [\n        {\n          \"uri\": \"string\"\n        },\n        {\n          \"uri\": \"string\"\n        }\n      ],\n      \"facility_affiliations\": [\n        {\n          \"name\": \"string\",\n          \"npi\": \"string\"\n        },\n        {\n          \"name\": \"string\",\n          \"npi\": \"string\"\n        }\n      ],\n      \"first_name\": \"string\",\n      \"gender\": \"string\",\n      \"languages\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"last_name\": \"string\",\n      \"npi\": \"string\",\n      \"pecos_id\": \"string\",\n      \"sanctioned\": true,\n      \"sanctions\": [\n        {\n          \"effectiveDate\": \"2016-06-20T06:53:32.844Z\",\n          \"source\": \"string\",\n          \"type\": \"string\"\n        },\n        {\n          \"effectiveDate\": \"2013-07-26T07:42:01.495Z\",\n          \"source\": \"string\",\n          \"type\": \"string\"\n        }\n      ],\n      \"specialties\": [\n        {\n          \"is_primary\": true,\n          \"taxonomy_code\": \"string\",\n          \"taxonomy_name\": \"string\"\n        },\n        {\n          \"is_primary\": true,\n          \"taxonomy_code\": \"string\",\n          \"taxonomy_name\": \"string\"\n        }\n      ],\n      \"state_licenses\": [\n        {\n          \"license_number\": \"string\",\n          \"license_state\": \"string\"\n        },\n        {\n          \"license_number\": \"string\",\n          \"license_state\": \"string\"\n        }\n      ],\n      \"tags\": {\n        \"is_advanced_practice_provider\": true,\n        \"is_prescriber\": true,\n        \"is_primary_care_provider\": true,\n        \"is_referable\": false,\n        \"practitioner_types\": [\n          {\n            \"name\": \"string\"\n          },\n          {\n            \"name\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"total_hits\": 6703\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fb6cbe9-33c8-4679-865b-96e3d71b142f",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opd",
+                    "practitioner",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"npi\": \"<string>\",\n  \"first_name\": \"Renee\",\n  \"last_name\": \"Williams\",\n  \"address1\": \"123 First St.\",\n  \"zip\": \"27103\",\n  \"distance\": \"10\",\n  \"states\": [\n    \"Colorado\",\n    \"Colorado\"\n  ],\n  \"specialties\": [\n    \"Nuclear Cardiology Physician\",\n    \"Nuclear Cardiology Physician\"\n  ],\n  \"practitioner_types\": [\n    \"Physician\",\n    \"Physician\"\n  ],\n  \"care_categories\": [\n    \"Cardiology\",\n    \"Cardiology\"\n  ],\n  \"drug_enforcement_agency_numbers\": [\n    \"FS3188198\",\n    \"FS3188198\"\n  ],\n  \"payer_names\": [\n    \"AETNA INC\",\n    \"AETNA INC\"\n  ],\n  \"required_fields\": [\n    \"fax\",\n    \"fax\"\n  ],\n  \"allow_sanctioned\": false,\n  \"size\": 25,\n  \"from\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 401,\n  \"error\": \"You are unauthorized to access this endpoint\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c3201be0-00e4-4895-82b8-899bed6364c0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opd",
+                    "practitioner",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"npi\": \"<string>\",\n  \"first_name\": \"Renee\",\n  \"last_name\": \"Williams\",\n  \"address1\": \"123 First St.\",\n  \"zip\": \"27103\",\n  \"distance\": \"10\",\n  \"states\": [\n    \"Colorado\",\n    \"Colorado\"\n  ],\n  \"specialties\": [\n    \"Nuclear Cardiology Physician\",\n    \"Nuclear Cardiology Physician\"\n  ],\n  \"practitioner_types\": [\n    \"Physician\",\n    \"Physician\"\n  ],\n  \"care_categories\": [\n    \"Cardiology\",\n    \"Cardiology\"\n  ],\n  \"drug_enforcement_agency_numbers\": [\n    \"FS3188198\",\n    \"FS3188198\"\n  ],\n  \"payer_names\": [\n    \"AETNA INC\",\n    \"AETNA INC\"\n  ],\n  \"required_fields\": [\n    \"fax\",\n    \"fax\"\n  ],\n  \"allow_sanctioned\": false,\n  \"size\": 25,\n  \"from\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 401,\n  \"error\": \"You are unauthorized to access this endpoint\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fe6ed3d-9e9d-4429-8208-7050f7746c3d",
+              "name": "Orderly Internal Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "opd",
+                    "practitioner",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"npi\": \"<string>\",\n  \"first_name\": \"Renee\",\n  \"last_name\": \"Williams\",\n  \"address1\": \"123 First St.\",\n  \"zip\": \"27103\",\n  \"distance\": \"10\",\n  \"states\": [\n    \"Colorado\",\n    \"Colorado\"\n  ],\n  \"specialties\": [\n    \"Nuclear Cardiology Physician\",\n    \"Nuclear Cardiology Physician\"\n  ],\n  \"practitioner_types\": [\n    \"Physician\",\n    \"Physician\"\n  ],\n  \"care_categories\": [\n    \"Cardiology\",\n    \"Cardiology\"\n  ],\n  \"drug_enforcement_agency_numbers\": [\n    \"FS3188198\",\n    \"FS3188198\"\n  ],\n  \"payer_names\": [\n    \"AETNA INC\",\n    \"AETNA INC\"\n  ],\n  \"required_fields\": [\n    \"fax\",\n    \"fax\"\n  ],\n  \"allow_sanctioned\": false,\n  \"size\": 25,\n  \"from\": 0\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 401,\n  \"error\": \"You are unauthorized to access this endpoint\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.orderlyhealth.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2eb95b15-3c2d-4e53-bc01-71508f5774b7",
+    "name": "Orderly Provider Directory Look Up Practitioners API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A set of endpoints for accessing the Orderly Provider Directory data programatically.\n\nContact Support:\n Name: Orderly Health Information\n Email: info@orderlyhealth.com",
+      "type": "text/plain"
+    }
+  }
+}
