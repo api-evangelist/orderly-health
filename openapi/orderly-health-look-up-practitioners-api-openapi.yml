@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Orderly Provider Directory Look Up Practitioners API
   description: A set of endpoints for accessing the Orderly Provider Directory data programatically.
@@ -52,20 +52,107 @@ paths:
               schema:
                 $ref: '#/components/schemas/GenericError'
           description: Orderly Internal Error
+      operationId: postOpdPractitionerSearch
+      x-operation-id-source: derived
 components:
   schemas:
-    GenericError:
-      description: Information for an Orderly error
-      example:
-        code: 401
-        error: You are unauthorized to access this endpoint
+    PractitionerSearchResponseV2:
       properties:
-        code:
-          description: The status code of the error
+        practitioners:
+          items:
+            $ref: '#/components/schemas/PractitionerDataV2'
+          type: array
+        total_hits:
+          description: Total number of results matched by the search. Might be much larger than the actual results returned from the first search call, depending on `size` parameter. This is especially useful when paging through a large results set with `size` and `from` parameters.
           type: integer
-        error:
-          description: Description of the error
+      type: object
+    PractitionerSearchRequestV2:
+      description: The request body for a search for a practitioner
+      properties:
+        npi:
+          description: NPI of the practitioner to search for
           type: string
+          example: 1952488983
+        first_name:
+          description: First name of the practitioner to search form
+          type: string
+          example: Renee
+        last_name:
+          description: Last name of the practitioner to search for
+          type: string
+          example: Williams
+        address1:
+          description: First line of address you want to search for
+          type: string
+          example: 123 First St.
+        zip:
+          description: Zip code to search for practitioner in/near. Use distance parameter to search nearby.
+          type: string
+          example: '27103'
+        distance:
+          description: Distance in miles from zip code to search for practitioner near
+          type: string
+          example: '10'
+        states:
+          description: List of full state names you want to search within
+          items:
+            type: string
+            example: Colorado
+          type: array
+        specialties:
+          description: NUCC specialties to filter practitioners by
+          items:
+            type: string
+            example: Nuclear Cardiology Physician
+          type: array
+        practitioner_types:
+          description: Practitioner types to filter practitioner by
+          items:
+            type: string
+            example: Physician
+          type: array
+        care_categories:
+          description: Care categories to filter practitioner by
+          items:
+            type: string
+            example: Cardiology
+          type: array
+        drug_enforcement_agency_numbers:
+          description: Drug Enforcement Agency Numbers to filter practitioner by
+          items:
+            type: string
+            example: FS3188198
+          type: array
+        payer_names:
+          description: Insurance Networks you would like to search within
+          items:
+            type: string
+            example: AETNA INC
+          type: array
+        required_fields:
+          description: Required fields in response choosen from provided list
+          items:
+            type: string
+            enum:
+            - email
+            - fax
+            - credentials
+            - insurance_accepted
+            - facility_affiliations
+            example: fax
+          type: array
+        allow_sanctioned:
+          description: Show sanctioned providers in results
+          type: boolean
+          example: false
+        size:
+          description: How many maximum records to return in the search. Default is 25 if unspecified.
+          type: integer
+          example: 25
+        from:
+          description: What index to start results at, default is 0 if unspecified. Used in conjunction with 'size' parameter to page through large results set with iterative search calls.
+          type: integer
+          example: 0
       type: object
     PractitionerDataV2:
       properties:
@@ -278,103 +365,18 @@ components:
               type: array
           type: object
       type: object
-    PractitionerSearchRequestV2:
-      description: The request body for a search for a practitioner
+    GenericError:
+      description: Information for an Orderly error
+      example:
+        code: 401
+        error: You are unauthorized to access this endpoint
       properties:
-        npi:
-          description: NPI of the practitioner to search for
-          type: string
-          example: 1952488983
-        first_name:
-          description: First name of the practitioner to search form
-          type: string
-          example: Renee
-        last_name:
-          description: Last name of the practitioner to search for
-          type: string
-          example: Williams
-        address1:
-          description: First line of address you want to search for
-          type: string
-          example: 123 First St.
-        zip:
-          description: Zip code to search for practitioner in/near. Use distance parameter to search nearby.
-          type: string
-          example: '27103'
-        distance:
-          description: Distance in miles from zip code to search for practitioner near
-          type: string
-          example: '10'
-        states:
-          description: List of full state names you want to search within
-          items:
-            type: string
-            example: Colorado
-          type: array
-        specialties:
-          description: NUCC specialties to filter practitioners by
-          items:
-            type: string
-            example: Nuclear Cardiology Physician
-          type: array
-        practitioner_types:
-          description: Practitioner types to filter practitioner by
-          items:
-            type: string
-            example: Physician
-          type: array
-        care_categories:
-          description: Care categories to filter practitioner by
-          items:
-            type: string
-            example: Cardiology
-          type: array
-        drug_enforcement_agency_numbers:
-          description: Drug Enforcement Agency Numbers to filter practitioner by
-          items:
-            type: string
-            example: FS3188198
-          type: array
-        payer_names:
-          description: Insurance Networks you would like to search within
-          items:
-            type: string
-            example: AETNA INC
-          type: array
-        required_fields:
-          description: Required fields in response choosen from provided list
-          items:
-            type: string
-            enum:
-            - email
-            - fax
-            - credentials
-            - insurance_accepted
-            - facility_affiliations
-            example: fax
-          type: array
-        allow_sanctioned:
-          description: Show sanctioned providers in results
-          type: boolean
-          example: false
-        size:
-          description: How many maximum records to return in the search. Default is 25 if unspecified.
+        code:
+          description: The status code of the error
           type: integer
-          example: 25
-        from:
-          description: What index to start results at, default is 0 if unspecified. Used in conjunction with 'size' parameter to page through large results set with iterative search calls.
-          type: integer
-          example: 0
-      type: object
-    PractitionerSearchResponseV2:
-      properties:
-        practitioners:
-          items:
-            $ref: '#/components/schemas/PractitionerDataV2'
-          type: array
-        total_hits:
-          description: Total number of results matched by the search. Might be much larger than the actual results returned from the first search call, depending on `size` parameter. This is especially useful when paging through a large results set with `size` and `from` parameters.
-          type: integer
+        error:
+          description: Description of the error
+          type: string
       type: object
   securitySchemes:
     OrderlyAPIToken:
