@@ -56,7 +56,7 @@ tags:
 - Provider Data
 - Provider Directory
 - Health Data
-- Machine-Learning
+- Machine Learning
 - Data Quality
 - Interoperability
 tags_raw:
@@ -68,6 +68,7 @@ tags_raw:
 - Machine Learning
 - Data Quality
 - Interoperability
+- Machine-Learning
 apis:
 - aid: orderly-health:orderly-health-look-up-practitioners-api
   name: Orderly Health Look Up Practitioners API
