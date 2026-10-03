@@ -56,6 +56,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    GenericError:
+      description: Information for an Orderly error
+      example:
+        code: 401
+        error: You are unauthorized to access this endpoint
+      properties:
+        code:
+          description: The status code of the error
+          type: integer
+        error:
+          description: Description of the error
+          type: string
+      type: object
     PractitionerDataV2:
       properties:
         addresses:
@@ -266,19 +279,6 @@ components:
                 type: object
               type: array
           type: object
-      type: object
-    GenericError:
-      description: Information for an Orderly error
-      example:
-        code: 401
-        error: You are unauthorized to access this endpoint
-      properties:
-        code:
-          description: The status code of the error
-          type: integer
-        error:
-          description: Description of the error
-          type: string
       type: object
     PractitionerSearchResponseV2:
       properties:
