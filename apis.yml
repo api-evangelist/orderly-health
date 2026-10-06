@@ -49,7 +49,7 @@ x-tier: profiled
 x-tier-reason: has-public-api
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Healthcare
@@ -91,6 +91,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://orderlyhealth.com/feed/
+  type: BlogRSS
 - type: Overlay
   url: overlays/orderly-health-provider-directory-overlay.yaml
 - type: DomainSecurity
