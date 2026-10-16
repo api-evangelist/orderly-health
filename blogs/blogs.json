@@ -2,10 +2,20 @@
   "repo": "orderly-health",
   "feeds": [
     {
-      "source": "https://orderlyapi.readme.io/changelog",
-      "error": "HTTPError"
+      "source": "https://orderlyhealth.com/blog/",
+      "feed_url": "https://orderlyhealth.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://orderlyhealth.com/feed/",
+      "feed_url": "https://orderlyhealth.com/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "feed"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "post_count": 1,
+  "fetched": "2026-10-10T13:15:00Z"
 }
