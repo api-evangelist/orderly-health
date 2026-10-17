@@ -56,6 +56,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PractitionerSearchResponseV2:
+      properties:
+        practitioners:
+          items:
+            $ref: '#/components/schemas/PractitionerDataV2'
+          type: array
+        total_hits:
+          description: Total number of results matched by the search. Might be much larger than the actual results returned from the first search call, depending on `size` parameter. This is especially useful when paging through a large results set with `size` and `from` parameters.
+          type: integer
+      type: object
     GenericError:
       description: Information for an Orderly error
       example:
@@ -279,16 +289,6 @@ components:
                 type: object
               type: array
           type: object
-      type: object
-    PractitionerSearchResponseV2:
-      properties:
-        practitioners:
-          items:
-            $ref: '#/components/schemas/PractitionerDataV2'
-          type: array
-        total_hits:
-          description: Total number of results matched by the search. Might be much larger than the actual results returned from the first search call, depending on `size` parameter. This is especially useful when paging through a large results set with `size` and `from` parameters.
-          type: integer
       type: object
     PractitionerSearchRequestV2:
       description: The request body for a search for a practitioner
