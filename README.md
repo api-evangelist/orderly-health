@@ -64,6 +64,117 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Orderly Health is a company surfaced as a portfolio company of 500-global and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Orderly Health is a Denver, Colorado healthcare data company that keeps provider directories accurate and usable. Founded in 2015, its API-first platform uses machine learning and AI to automatically identify and repair inaccuracies in healthcare provider data for providers, payers, and health-technology companies. Its products include the Orderly Provider Directory (6.4M+ practitioner profiles), a Roster Automation Suite that normalizes and validates rosters in seconds, and Data Updates that deliver traceable, field-level corrections. The public Orderly Provider Directory API lets developers search practitioners by NPI, name, location, specialty, care category, accepted insurance, and DEA number, returning per-field confidence scores and source attribution. Orderly Health was acquired by First Choice Health.
 
-Backed by: 500-global — https://orderlyhealth.com
+**Areas:** Company · Healthcare · Provider Data · Provider Directory · Health Data · Machine Learning · Data Quality · Interoperability
+
+## Orderly Health on APIs.io
+
+Everything profiled for Orderly Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/orderly-health/](https://apis.io/providers/orderly-health/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Orderly Health Look Up Practitioners API](https://apis.io/apis/orderly-health/orderly-health-look-up-practitioners-api/) — The Look Up Practitioners API from Orderly Health — 1 operation(s) for look up practitioners.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [orderly-health](https://apis.io/servers/orderly-health/orderly-health/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Orderly Health Agentic Access](https://apis.io/agentic-access/orderly-health/orderly-health-agentic-access/)
+
+#### Collections (1)
+
+Postman and Open Collection request collections.
+
+- [Orderly Provider Directory Look Up Practitioners API](https://apis.io/collections/orderly-health/open-orderly-health-look-up-practitioners-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Orderly Health Provider Directory Overlay](https://apis.io/overlays/orderly-health/orderly-health-provider-directory-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Orderly Health Authentication](https://apis.io/security/orderly-health/orderly-health-authentication/)
+- [Orderly Health Domain Security](https://apis.io/security/orderly-health/orderly-health-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://orderlyhealth.com)
+- [Documentation](https://orderlyapi.readme.io/docs)
+- [Getting started](https://orderlyapi.readme.io/docs/setting-up-to-use-the-orderly-api)
+- [API reference](https://orderlyapi.readme.io/reference)
+- [Sign up](https://app.orderlyhealth.com)
+- [Changelog](https://orderlyapi.readme.io/changelog)
+- [Blog](https://orderlyhealth.com/blog/)
+- [Terms of service](https://orderlyhealth.com/terms-conditions)
+- [Privacy policy](https://orderlyhealth.com/privacy-policy/)
+- [GitHub](https://github.com/orderlyhealth)
+
+## API Evangelist rating
+
+**Kin Score 35.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 42.3 |
+| Access clarity | 21.1 |
+
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 18.4** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/orderly-health/](https://apis.io/providers/orderly-health/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Orderly Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/orderly-health/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
